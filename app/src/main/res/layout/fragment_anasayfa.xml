@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    tools:context=".ui.view.AnasayfaFragment">
+
+    <!-- Üst Başlık ve Adres Bilgileri -->
+    <TextView
+        android:id="@+id/textViewMerhaba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Merhaba, isim"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        android:textColor="?attr/colorOnSurface"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewNotification"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="Bildirimler"
+        android:src="@drawable/ic_notifications"
+        app:tint="?attr/colorOnSurface"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewMerhaba"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewMerhaba"/> <!-- Merhaba ile aynı hizada -->
+
+    <ImageButton
+        android:id="@+id/imageButtonSepet"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="211dp"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Sepet"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewNotification"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewNotification"
+        app:layout_constraintStart_toEndOf="@+id/textViewMerhaba"
+        app:layout_constraintTop_toTopOf="@+id/imageViewNotification"
+        app:tint="?attr/colorOnSurface" /> <!-- Bildirim ile aynı hizada -->
+
+    <TextView
+        android:id="@+id/textViewTeslimatLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Teslimat Adresi"
+        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        app:layout_constraintStart_toStartOf="@+id/textViewMerhaba"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMerhaba" />
+
+    <TextView
+        android:id="@+id/textViewTeslimatAdresi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
+        android:drawableEnd="@drawable/ic_arrow_down"
+        android:drawablePadding="4dp"
+        android:text="Evim"
+        android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonSepet"
+        app:layout_constraintStart_toStartOf="@+id/textViewTeslimatLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTeslimatLabel" />
+
+    <!-- Arama Çubuğu -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchViewYemek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/search_view_background"
+        app:iconifiedByDefault="false"
+        app:queryHint="Yemek ara..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTeslimatAdresi" /> <!-- Teslimat adresinin altına -->
+
+    <!-- Yemek Listesi ve Durum Göstergeleri -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewYemekler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:clipToPadding="false"
+        android:paddingHorizontal="8dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchViewYemek"
+        tools:listitem="@layout/item_yemek_card" />
+
+    <ProgressBar
+        android:id="@+id/progressBarAnasayfa"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchViewYemek"
+        tools:visibility="visible" /> <!-- RecyclerView ile aynı alanda ortaladık -->
+
+    <TextView
+        android:id="@+id/textViewSepetBos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Yemekler yüklenemedi veya liste boş."
+        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchViewYemek"
+        tools:visibility="gone" /> <!-- RecyclerView ile aynı alanda ortaladık -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

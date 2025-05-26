@@ -1,0 +1,20 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Arka plan rengi -->
+    <solid android:color="?attr/colorSurfaceContainerHighest" />
+    <!-- colorSurfaceContainerHighest: Material 3'te genellikle yüzeyden biraz daha yüksek bir bileşenin rengi.
+         Veya direkt bir renk de verebilirsin: android:color="#EEEEEE" gibi.
+         "?attr/colorSurfaceVariant" veya "?attr/colorSurface" de deneyebilirsin. -->
+
+    <!-- Köşeleri yuvarlama -->
+    <corners android:radius="28dp" /> <!-- Örnekteki SearchView daha yuvarlak görünüyor -->
+
+    <!-- Kenarlık (isteğe bağlı) -->
+    <!--
+    <stroke
+        android:width="1dp"
+        android:color="?attr/colorPrimary" />
+    -->
+
+</shape>
