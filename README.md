@@ -16,3 +16,7 @@ Adres
 Ev 
 
 Gibi kısımlar oluşturulmuş fakat boş bırakılmıştır. Eğer ki bir login sistemi tasarlanırsa oralar login olan kullanıcının database'den gelen verilerine göre dinamik olarak değiştirilebilir.
+
+Ek özellik olarak : 
+1.) Bildirim iconu eklendi ( Gerçek bir DB bağlandığı zaman otomatik bildirim yollanabilmesi için )
+2.) Arama barı eklendi ve çalışır hale getirildi. 
